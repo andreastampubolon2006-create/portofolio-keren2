@@ -1,0 +1,67 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { Mail, MapPin, Github, Linkedin, Instagram } from "lucide-react";
+
+export default function Contact() {
+  return (
+    <section id="contact" className="py-24 bg-surface relative overflow-hidden">
+      
+      {/* Hiasan Glow Ungu di pojok bawah */}
+      <div className="absolute bottom-[-20%] left-[-10%] w-[500px] h-[500px] bg-purple-600/20 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="container mx-auto px-6 text-center relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            Let's Work <span className="text-accent">Together.</span>
+          </h2>
+          <p className="text-secondary text-lg max-w-2xl mx-auto mb-10">
+            Tertarik membuat website keren atau punya ide proyek menarik? 
+            Jangan ragu untuk menyapa saya!
+          </p>
+
+          {/* Tombol Email Besar */}
+          <a 
+            href="mailto:andreastampubolon2006.com"
+            className="inline-flex items-center gap-2 bg-white text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-200 transition-transform hover:scale-105 active:scale-95 mb-12"
+          >
+            <Mail className="w-5 h-5" /> Kirim Email
+          </a>
+
+          {/* Info Tambahan */}
+          <div className="flex flex-col md:flex-row items-center justify-center gap-8 text-secondary text-sm">
+            <div className="flex items-center gap-2">
+              <MapPin className="w-4 h-4 text-accent" />
+              <span>Tarutung,tapanuli utara</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Mail className="w-4 h-4 text-accent" />
+              <span>andreastampubolon2006.com</span>
+            </div>
+          </div>
+
+          <div className="w-full h-px bg-white/10 my-12" />
+
+          {/* Copyright & Sosmed */}
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <p className="text-secondary text-sm">
+              © 2025 Portofolio Keren. All rights reserved.
+            </p>
+            
+            <div className="flex gap-6">
+              <a href="#" className="text-secondary hover:text-white transition-colors"><Github size={20} /></a>
+              <a href="#" className="text-secondary hover:text-white transition-colors"><Linkedin size={20} /></a>
+              <a href="#" className="text-secondary hover:text-white transition-colors"><Instagram size={20} /></a>
+            </div>
+          </div>
+
+        </motion.div>
+      </div>
+    </section>
+  );
+}
