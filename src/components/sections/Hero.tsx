@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { ArrowRight, Github, Linkedin, Code2, Database, Laptop } from "lucide-react";
 
 // Komponen Ikon Melayang (Hiasan)
-// SAYA UBAH DI SINI: Menghapus "hidden md:block" agar muncul di HP
 const FloatingIcon = ({ children, delay, x, y }: { children: React.ReactNode; delay: number; x: number; y: number }) => (
   <motion.div
     animate={{ 
@@ -17,8 +16,10 @@ const FloatingIcon = ({ children, delay, x, y }: { children: React.ReactNode; de
       repeat: Infinity,
       ease: "easeInOut" 
     }}
-    // Perubahan: Menghapus class 'hidden' agar tetap muncul di semua layar
-    className="absolute text-white/5 pointer-events-none"
+    // --- PERUBAHAN DI SINI ---
+    // text-white/20 : Di HP, ikon lebih jelas (opasitas 20%)
+    // md:text-white/5 : Di Laptop, ikon kembali sangat tipis (opasitas 5%)
+    className="absolute text-white/20 md:text-white/5 pointer-events-none"
     style={{ left: `${x}%`, top: `${y}%` }}
   >
     {children}
@@ -33,10 +34,11 @@ export default function Hero() {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
       
       {/* 2. EFEK CAHAYA (Glow) */}
-      <div className="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-[-20%] right-[-10%] w-[400px] h-[400px] bg-purple-600/10 rounded-full blur-[100px] pointer-events-none" />
+      {/* Saya tambahkan sedikit 'opacity-70' di HP agar glownya juga lebih terasa */}
+      <div className="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] bg-blue-600/30 md:bg-blue-600/20 rounded-full blur-[120px] pointer-events-none opacity-70 md:opacity-100" />
+      <div className="absolute bottom-[-20%] right-[-10%] w-[400px] h-[400px] bg-purple-600/20 md:bg-purple-600/10 rounded-full blur-[100px] pointer-events-none opacity-70 md:opacity-100" />
 
-      {/* 3. IKON MELAYANG (Sekarang muncul di HP) */}
+      {/* 3. IKON MELAYANG */}
       <FloatingIcon delay={0} x={10} y={15}><Code2 size={40} /></FloatingIcon>
       <FloatingIcon delay={2} x={85} y={10}><Database size={35} /></FloatingIcon>
       <FloatingIcon delay={1} x={15} y={75}><Laptop size={50} /></FloatingIcon>
