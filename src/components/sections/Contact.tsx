@@ -26,8 +26,9 @@ export default function Contact() {
           </p>
 
           {/* Tombol Email Besar */}
+          {/* SAYA PERBAIKI: Menambahkan @gmail.com agar tombol bisa diklik */}
           <a 
-            href="mailto:andreastampubolon2006.com"
+            href="mailto:andreastampubolon2006@gmail.com"
             className="inline-flex items-center gap-2 bg-white text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-200 transition-transform hover:scale-105 active:scale-95 mb-12"
           >
             <Mail className="w-5 h-5" /> Kirim Email
@@ -37,11 +38,11 @@ export default function Contact() {
           <div className="flex flex-col md:flex-row items-center justify-center gap-8 text-secondary text-sm">
             <div className="flex items-center gap-2">
               <MapPin className="w-4 h-4 text-accent" />
-              <span>Tarutung,tapanuli utara</span>
+              <span>Tarutung, Tapanuli Utara</span>
             </div>
             <div className="flex items-center gap-2">
               <Mail className="w-4 h-4 text-accent" />
-              <span>andreastampubolon2006.com</span>
+              <span>andreastampubolon2006@gmail.com</span>
             </div>
           </div>
 
@@ -50,13 +51,30 @@ export default function Contact() {
           {/* Copyright & Sosmed */}
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-secondary text-sm">
-              © 2025 Portofolio Keren. All rights reserved.
+              © 2026 Portofolio Keren. All rights reserved.
             </p>
             
             <div className="flex gap-6">
-              <a href="#" className="text-secondary hover:text-white transition-colors"><Github size={20} /></a>
-              <a href="#" className="text-secondary hover:text-white transition-colors"><Linkedin size={20} /></a>
-              <a href="#" className="text-secondary hover:text-white transition-colors"><Instagram size={20} /></a>
+              {/* Github */}
+              <a href="https://github.com/" target="_blank" className="text-secondary hover:text-white transition-colors">
+                <Github size={20} />
+              </a>
+              
+              {/* Linkedin */}
+              <a href="https://linkedin.com/" target="_blank" className="text-secondary hover:text-white transition-colors">
+                <Linkedin size={20} />
+              </a>
+              
+              {/* --- BAGIAN INSTAGRAM --- */}
+              {/* Ganti 'USERNAME_IG_ANDA' dengan username asli Anda */}
+              <a 
+                href="https://www.instagram.com/andreas_tampubolon15" 
+                target="_blank" 
+                className="text-secondary hover:text-white transition-colors"
+              >
+                <Instagram size={20} />
+              </a>
+
             </div>
           </div>
 
