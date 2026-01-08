@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const projects = [
   {
-    title: "Website UMKM",
+    title: "TugasWebsite UMKM sekitar",
     desc: "Membangun website responsif untuk membantu usaha kecil menengah memperluas jangkauan pasar digital.",
     tags: ["Web Development", "Next.js", "Responsive"],
     image: "/umkm.jpg",
