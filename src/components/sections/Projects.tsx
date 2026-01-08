@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import Image from "next/image";
 
 const projects = [
@@ -48,11 +48,14 @@ export default function Projects() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
               
-              /* --- PERUBAHAN DI SINI: EFEK SUPER GLOW --- */
-              /* shadow-[0_0_60px_...] membuat sebaran cahaya lebih luas */
-              /* opacity 0.6 membuat warnanya lebih pekat */
-              /* border-purple-400 membuat garis pinggir lebih terang */
-              className="group relative bg-white/5 border border-white/10 rounded-2xl overflow-hidden transition-all duration-300 hover:border-purple-400 hover:shadow-[0_0_60px_rgba(168,85,247,0.7)] hover:-translate-y-2 z-10"
+              /* --- PERUBAHAN UTAMA DI SINI --- */
+              /* 1. Default (HP): Border ungu redup & glow kecil selalu nyala */
+              /* 2. md (Laptop): Reset jadi polos lagi */
+              /* 3. md:hover (Laptop Hover): Nyala terang saat disorot */
+              className="group relative bg-white/5 rounded-2xl overflow-hidden transition-all duration-300 z-10 
+              border border-purple-500/40 shadow-[0_0_20px_rgba(168,85,247,0.25)] 
+              md:border-white/10 md:shadow-none 
+              md:hover:border-purple-400 md:hover:shadow-[0_0_60px_rgba(168,85,247,0.7)] md:hover:-translate-y-2"
             >
               {/* Bagian Gambar */}
               <div className="relative h-64 w-full overflow-hidden">
@@ -66,7 +69,8 @@ export default function Projects() {
               </div>
               
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 group-hover:text-purple-300 transition-colors">
+                {/* Judul: Di HP jadi ungu dikit, di Laptop putih lalu ungu pas hover */}
+                <h3 className="text-xl font-bold mb-2 text-purple-200 md:text-white md:group-hover:text-purple-300 transition-colors">
                   {project.title}
                 </h3>
                 <p className="text-secondary text-sm mb-4">
