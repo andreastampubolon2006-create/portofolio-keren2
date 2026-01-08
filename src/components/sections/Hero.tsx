@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Github, Linkedin, Code2, Database, Laptop } from "lucide-react";
 
 // Komponen Ikon Melayang (Hiasan)
+// SAYA UBAH DI SINI: Menghapus "hidden md:block" agar muncul di HP
 const FloatingIcon = ({ children, delay, x, y }: { children: React.ReactNode; delay: number; x: number; y: number }) => (
   <motion.div
     animate={{ 
@@ -16,7 +17,8 @@ const FloatingIcon = ({ children, delay, x, y }: { children: React.ReactNode; de
       repeat: Infinity,
       ease: "easeInOut" 
     }}
-    className="absolute text-white/5 pointer-events-none hidden md:block"
+    // Perubahan: Menghapus class 'hidden' agar tetap muncul di semua layar
+    className="absolute text-white/5 pointer-events-none"
     style={{ left: `${x}%`, top: `${y}%` }}
   >
     {children}
@@ -27,18 +29,18 @@ export default function Hero() {
   return (
     <section className="min-h-screen flex flex-col items-center justify-center px-6 relative overflow-hidden">
       
-      {/* 1. BACKGROUND GRID (Garis-garis Kotak Tipis) */}
+      {/* 1. BACKGROUND GRID */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
       
       {/* 2. EFEK CAHAYA (Glow) */}
       <div className="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-[-20%] right-[-10%] w-[400px] h-[400px] bg-purple-600/10 rounded-full blur-[100px] pointer-events-none" />
 
-      {/* 3. IKON MELAYANG (Hiasan Background) */}
-      <FloatingIcon delay={0} x={10} y={20}><Code2 size={60} /></FloatingIcon>
-      <FloatingIcon delay={2} x={85} y={15}><Database size={50} /></FloatingIcon>
-      <FloatingIcon delay={1} x={20} y={70}><Laptop size={70} /></FloatingIcon>
-      <FloatingIcon delay={3} x={80} y={60}><Github size={40} /></FloatingIcon>
+      {/* 3. IKON MELAYANG (Sekarang muncul di HP) */}
+      <FloatingIcon delay={0} x={10} y={15}><Code2 size={40} /></FloatingIcon>
+      <FloatingIcon delay={2} x={85} y={10}><Database size={35} /></FloatingIcon>
+      <FloatingIcon delay={1} x={15} y={75}><Laptop size={50} /></FloatingIcon>
+      <FloatingIcon delay={3} x={80} y={70}><Github size={30} /></FloatingIcon>
 
       {/* KONTEN UTAMA */}
       <div className="z-10 text-center max-w-4xl space-y-8 relative">
