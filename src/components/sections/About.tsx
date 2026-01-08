@@ -2,18 +2,21 @@
 
 import { motion } from "framer-motion";
 import { Code2, Palette, Terminal, Cpu } from "lucide-react";
+import Image from "next/image";
 
 export default function About() {
   return (
     <section id="about" className="py-24 bg-black relative overflow-hidden">
       
-      {/* Background Pattern Halus */}
+      {/* Background Pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:32px_32px]"></div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        
+        {/* BAGIAN ATAS: Grid 2 Kolom (Teks Kiri, Foto Kanan) */}
+        <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
           
-          {/* Bagian Kiri: Teks & Cerita */}
+          {/* 1. TEKS & CERITA (Kiri) */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -24,7 +27,7 @@ export default function About() {
               About <span className="text-accent">Me.</span>
             </h2>
             
-            <div className="space-y-4 text-secondary text-lg leading-relaxed">
+            <div className="space-y-4 text-secondary text-lg leading-relaxed mb-8">
               <p>
                 Horas! 👋 Saya <span className="text-white font-semibold">Andreas Tampubolon</span>, 
                 seorang Mahasiswa Teknik Informatika yang berbasis di <span className="text-white">Tarutung, Tapanuli Utara</span>.
@@ -39,57 +42,85 @@ export default function About() {
             </div>
 
             {/* Statistik Singkat */}
-            <div className="grid grid-cols-2 gap-6 mt-8">
-              <div className="p-4 border border-white/10 rounded-xl bg-white/5">
+            <div className="flex gap-6">
+              <div className="px-6 py-3 border border-white/10 rounded-xl bg-white/5">
                 <h3 className="text-3xl font-bold text-accent mb-1">2+</h3>
-                <p className="text-sm text-secondary">Tahun Belajar Coding</p>
+                <p className="text-xs text-secondary uppercase tracking-wider">Years Exp</p>
               </div>
-              <div className="p-4 border border-white/10 rounded-xl bg-white/5">
+              <div className="px-6 py-3 border border-white/10 rounded-xl bg-white/5">
                 <h3 className="text-3xl font-bold text-accent mb-1">5+</h3>
-                <p className="text-sm text-secondary">Proyek Selesai</p>
+                <p className="text-xs text-secondary uppercase tracking-wider">Projects</p>
               </div>
             </div>
           </motion.div>
 
-          {/* Bagian Kanan: Kartu Skill */}
+          {/* 2. FOTO PROFIL (Kanan) */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+            className="relative flex justify-center md:justify-end"
           >
-            {/* Skill 1 */}
-            <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
-              <Code2 className="w-10 h-10 text-blue-400 mb-4" />
-              <h3 className="text-xl font-bold mb-2">Web Development</h3>
-              <p className="text-sm text-secondary">Membangun website responsif dengan HTML, CSS, dan React/Next.js.</p>
+            {/* Bingkai Foto dengan Efek Glow */}
+            <div className="relative w-72 h-96 md:w-80 md:h-[450px] rounded-2xl overflow-hidden border-2 border-white/10 group shadow-[0_0_40px_rgba(168,85,247,0.3)]">
+              
+              {/* SAYA UBAH DI SINI: Sesuai nama file Anda 'foto-profil.jpg' */}
+              <Image 
+                src="/foto-profil.jpg" 
+                alt="Andreas Tampubolon"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              
+              {/* Overlay Warna Tipis */}
+              <div className="absolute inset-0 bg-purple-900/20 mix-blend-overlay group-hover:bg-transparent transition-colors"></div>
             </div>
-
-            {/* Skill 2 */}
-            <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
-              <Palette className="w-10 h-10 text-purple-400 mb-4" />
-              <h3 className="text-xl font-bold mb-2">UI/UX Design</h3>
-              <p className="text-sm text-secondary">Merancang tampilan aplikasi yang modern dan mudah digunakan di Figma.</p>
-            </div>
-
-            {/* Skill 3 */}
-            <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
-              <Terminal className="w-10 h-10 text-green-400 mb-4" />
-              <h3 className="text-xl font-bold mb-2">Database</h3>
-              <p className="text-sm text-secondary">Mengelola penyimpanan data yang efisien dan aman.</p>
-            </div>
-
-            {/* Skill 4 */}
-            <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
-              <Cpu className="w-10 h-10 text-yellow-400 mb-4" />
-              <h3 className="text-xl font-bold mb-2">Problem Solving</h3>
-              <p className="text-sm text-secondary">Memecahkan masalah teknis dengan logika algoritma yang kuat.</p>
-            </div>
-
+            
+            {/* Hiasan Kotak di Belakang Foto */}
+            <div className="absolute -z-10 top-10 right-10 w-72 h-96 border border-white/5 rounded-2xl md:block hidden"></div>
           </motion.div>
 
         </div>
+
+        {/* BAGIAN BAWAH: Skill Cards (Berjejer 4) */}
+        <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-4"
+          >
+            {/* Skill 1 */}
+            <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-blue-500/50 hover:bg-blue-500/10 transition-all group">
+              <Code2 className="w-8 h-8 text-blue-400 mb-4 group-hover:scale-110 transition-transform" />
+              <h3 className="text-lg font-bold mb-1">Web Dev</h3>
+              <p className="text-xs text-secondary">Next.js, React, Tailwind</p>
+            </div>
+
+            {/* Skill 2 */}
+            <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-purple-500/50 hover:bg-purple-500/10 transition-all group">
+              <Palette className="w-8 h-8 text-purple-400 mb-4 group-hover:scale-110 transition-transform" />
+              <h3 className="text-lg font-bold mb-1">UI/UX</h3>
+              <p className="text-xs text-secondary">Figma, Prototyping</p>
+            </div>
+
+            {/* Skill 3 */}
+            <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-green-500/50 hover:bg-green-500/10 transition-all group">
+              <Terminal className="w-8 h-8 text-green-400 mb-4 group-hover:scale-110 transition-transform" />
+              <h3 className="text-lg font-bold mb-1">Database</h3>
+              <p className="text-xs text-secondary">MySQL, PostgreSQL</p>
+            </div>
+
+            {/* Skill 4 */}
+            <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-yellow-500/50 hover:bg-yellow-500/10 transition-all group">
+              <Cpu className="w-8 h-8 text-yellow-400 mb-4 group-hover:scale-110 transition-transform" />
+              <h3 className="text-lg font-bold mb-1">Logic</h3>
+              <p className="text-xs text-secondary">Problem Solving</p>
+            </div>
+
+        </motion.div>
+
       </div>
     </section>
   );
