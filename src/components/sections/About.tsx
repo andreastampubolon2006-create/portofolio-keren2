@@ -64,9 +64,6 @@ export default function About() {
                 <div className="absolute inset-0 bg-purple-600/40 blur-[60px] rounded-full group-hover:bg-purple-600/60 transition-all duration-500 scale-110"></div>
                 
                 {/* BINGKAI UTAMA: LINGKARAN PENUH */}
-                {/* SAYA UBAH DI SINI: */}
-                {/* 1. W dan H dibuat sama (w-80 h-80) agar jadi kotak sempurna dulu */}
-                {/* 2. rounded-full membuatnya jadi lingkaran sempurna */}
                 <div className="relative w-80 h-80 rounded-full overflow-hidden border-[5px] border-white/10 group-hover:border-purple-500/50 transition-all duration-500 shadow-2xl z-10">
                     <Image 
                         src="/foto-profil.jpg" 
@@ -78,11 +75,9 @@ export default function About() {
                     {/* Overlay Gradasi Halus */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
                 </div>
+                
+                {/* --- BAGIAN IKON MENGAMBANG SUDAH DIHAPUS DI SINI --- */}
 
-                {/* Hiasan Ikon Mengambang */}
-                <div className="absolute bottom-2 right-2 z-20 bg-[#1a1a1a] p-4 rounded-full border border-white/10 shadow-xl animate-bounce hidden md:block">
-                    <Code2 className="text-accent w-7 h-7" />
-                </div>
             </div>
           </motion.div>
 
