@@ -18,8 +18,8 @@ const FloatingIcon = ({ children, delay, x, y }: { children: React.ReactNode; de
     }}
     // --- PERUBAHAN DI SINI ---
     // text-white/20 : Di HP, ikon lebih jelas (opasitas 20%)
-    // md:text-white/5 : Di Laptop, ikon kembali sangat tipis (opasitas 5%)
-    className="absolute text-white/20 md:text-white/5 pointer-events-none"
+    // md:text-white/20 : Di Laptop, ikon kembali sangat tipis (opasitas 20%)
+    className="absolute text-white/20 md:text-white/20 pointer-events-none"
     style={{ left: `${x}%`, top: `${y}%` }}
   >
     {children}
@@ -65,7 +65,7 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-5xl md:text-8xl font-bold tracking-tight text-primary leading-tight"
         >
-          Andreas Tampubolon <br />
+          Halo Saya Andreas Tampubolon <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 animate-gradient">
             Mahasiswa TI.
           </span>

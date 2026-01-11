@@ -41,11 +41,11 @@ export default function About() {
 
             <div className="flex gap-6">
               <div className="px-6 py-3 border border-white/10 rounded-xl bg-white/5">
-                <h3 className="text-3xl font-bold text-accent mb-1">1.5+</h3>
+                <h3 className="text-3xl font-bold text-accent mb-1">1.5-+</h3>
                 <p className="text-xs text-secondary uppercase tracking-wider">Years Exp</p>
               </div>
               <div className="px-6 py-3 border border-white/10 rounded-xl bg-white/5">
-                <h3 className="text-3xl font-bold text-accent mb-1">5+</h3>
+                <h3 className="text-3xl font-bold text-accent mb-1">3-+</h3>
                 <p className="text-xs text-secondary uppercase tracking-wider">Projects</p>
               </div>
             </div>
