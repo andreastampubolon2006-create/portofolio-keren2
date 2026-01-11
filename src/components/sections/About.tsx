@@ -51,7 +51,7 @@ export default function About() {
             </div>
           </motion.div>
 
-          {/* 2. FOTO MODEL ARCH/JENDELA (Kanan) */}
+          {/* 2. FOTO LINGKARAN PENUH (Kanan) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -61,24 +61,27 @@ export default function About() {
           >
             <div className="relative group">
                 {/* Efek Glow Ungu di Belakang */}
-                <div className="absolute inset-0 bg-purple-600/40 blur-[60px] rounded-full group-hover:bg-purple-600/60 transition-all duration-500"></div>
+                <div className="absolute inset-0 bg-purple-600/40 blur-[60px] rounded-full group-hover:bg-purple-600/60 transition-all duration-500 scale-110"></div>
                 
-                {/* BINGKAI UTAMA: ARCH (Melengkung di Atas) */}
-                {/* rounded-t-full membuat atasnya setengah lingkaran */}
-                <div className="relative w-72 h-96 rounded-t-full rounded-b-3xl overflow-hidden border-4 border-white/10 group-hover:border-purple-500/50 transition-all duration-500 shadow-2xl">
+                {/* BINGKAI UTAMA: LINGKARAN PENUH */}
+                {/* SAYA UBAH DI SINI: */}
+                {/* 1. W dan H dibuat sama (w-80 h-80) agar jadi kotak sempurna dulu */}
+                {/* 2. rounded-full membuatnya jadi lingkaran sempurna */}
+                <div className="relative w-80 h-80 rounded-full overflow-hidden border-[5px] border-white/10 group-hover:border-purple-500/50 transition-all duration-500 shadow-2xl z-10">
                     <Image 
                         src="/foto-profil.jpg" 
                         alt="Andreas Tampubolon"
                         fill
-                        className="object-cover group-hover:scale-110 transition-transform duration-700"
+                        // object-top agar fokus ke wajah
+                        className="object-cover object-top group-hover:scale-110 transition-transform duration-700"
                     />
-                    {/* Overlay Gradasi Hitam di Bawah */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+                    {/* Overlay Gradasi Halus */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
                 </div>
 
                 {/* Hiasan Ikon Mengambang */}
-                <div className="absolute -bottom-6 -right-6 bg-[#1a1a1a] p-4 rounded-2xl border border-white/10 shadow-xl animate-bounce">
-                    <Code2 className="text-accent w-8 h-8" />
+                <div className="absolute bottom-2 right-2 z-20 bg-[#1a1a1a] p-4 rounded-full border border-white/10 shadow-xl animate-bounce hidden md:block">
+                    <Code2 className="text-accent w-7 h-7" />
                 </div>
             </div>
           </motion.div>
