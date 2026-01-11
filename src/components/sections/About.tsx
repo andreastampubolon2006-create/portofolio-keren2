@@ -14,15 +14,14 @@ export default function About() {
       <div className="container mx-auto px-6 relative z-10">
         
         {/* BAGIAN ATAS: Grid 2 Kolom */}
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-24"> {/* Margin bottom diperbesar sedikit */}
+        <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
           
-          {/* 1. TEKS & CERITA (Kiri) */}
+          {/* 1. TEKS (Kiri) */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            // Tambahkan order-2 di mobile agar teks ada di bawah foto, order-1 di desktop
             className="order-2 md:order-1"
           >
             <h2 className="text-4xl font-bold mb-6">
@@ -38,12 +37,8 @@ export default function About() {
                 Saya memiliki ketertarikan mendalam pada dunia pengembangan website dan desain antarmuka (UI/UX). 
                 Bagi saya, *coding* bukan sekadar menulis baris perintah, tapi seni menciptakan solusi digital yang bermanfaat.
               </p>
-              <p>
-                Saat ini saya fokus mendalami teknologi web modern seperti <span className="text-accent">Next.js</span> dan membuat desain aplikasi yang *user-friendly* menggunakan <span className="text-accent">Figma</span>.
-              </p>
             </div>
 
-            {/* Statistik Singkat */}
             <div className="flex gap-6">
               <div className="px-6 py-3 border border-white/10 rounded-xl bg-white/5">
                 <h3 className="text-3xl font-bold text-accent mb-1">1.5+</h3>
@@ -56,39 +51,34 @@ export default function About() {
             </div>
           </motion.div>
 
-          {/* 2. FOTO PROFIL POP-OUT (Kanan) */}
+          {/* 2. FOTO MODEL ARCH/JENDELA (Kanan) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            // Ubah justify-end menjadi center agar lebih seimbang dengan bentuk bulat
-            // order-1 di mobile agar foto di atas
-            className="relative flex justify-center items-center order-1 md:order-2 mt-8 md:mt-0"
+            className="flex justify-center order-1 md:order-2"
           >
-            
-            {/* KONTAINER UTAMA FOTO (Bentuk Kotak sebagai area kerja) */}
-            <div className="relative w-72 h-72 md:w-80 md:h-80 group">
-
-                {/* A. Efek Glow di Belakang */}
-                <div className="absolute inset-0 bg-purple-600/30 rounded-full blur-3xl group-hover:bg-purple-600/50 transition-all duration-500"></div>
-
-                {/* B. Bingkai Lingkaran (Border) */}
-                <div className="absolute inset-0 rounded-full border-[3px] border-white/20 bg-black/20 z-10 group-hover:border-purple-500/50 transition-colors overflow-hidden">
-                    {/* Overlay halus di dalam lingkaran */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-20"></div>
-                </div>
-
-                {/* C. FOTO YANG "KELUAR" */}
-                {/* Triknya di sini: Tinggi 120%, ditarik ke atas -20%, dan hanya rounded di bawah */}
-                <div className="relative h-[125%] w-full -top-[25%] rounded-b-full z-20 pointer-events-none select-none">
+            <div className="relative group">
+                {/* Efek Glow Ungu di Belakang */}
+                <div className="absolute inset-0 bg-purple-600/40 blur-[60px] rounded-full group-hover:bg-purple-600/60 transition-all duration-500"></div>
+                
+                {/* BINGKAI UTAMA: ARCH (Melengkung di Atas) */}
+                {/* rounded-t-full membuat atasnya setengah lingkaran */}
+                <div className="relative w-72 h-96 rounded-t-full rounded-b-3xl overflow-hidden border-4 border-white/10 group-hover:border-purple-500/50 transition-all duration-500 shadow-2xl">
                     <Image 
-                        src="/foto-profil.jpg" // Pastikan nama file ini benar
+                        src="/foto-profil.jpg" 
                         alt="Andreas Tampubolon"
                         fill
-                        // object-bottom penting agar badan tetap pas di dalam lingkaran bawah
-                        className="object-cover object-bottom group-hover:scale-105 transition-transform duration-500 drop-shadow-[0_10px_15px_rgba(0,0,0,0.5)]"
+                        className="object-cover group-hover:scale-110 transition-transform duration-700"
                     />
+                    {/* Overlay Gradasi Hitam di Bawah */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
+                </div>
+
+                {/* Hiasan Ikon Mengambang */}
+                <div className="absolute -bottom-6 -right-6 bg-[#1a1a1a] p-4 rounded-2xl border border-white/10 shadow-xl animate-bounce">
+                    <Code2 className="text-accent w-8 h-8" />
                 </div>
             </div>
           </motion.div>
@@ -104,33 +94,29 @@ export default function About() {
             className="grid grid-cols-2 md:grid-cols-4 gap-4"
           >
             {/* Skill 1 */}
-            <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-blue-500/50 hover:bg-blue-500/10 transition-all group">
-              <Code2 className="w-8 h-8 text-blue-400 mb-4 group-hover:scale-110 transition-transform" />
+            <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-blue-500/10 transition-all group">
+              <Code2 className="w-8 h-8 text-blue-400 mb-4" />
               <h3 className="text-lg font-bold mb-1">Web Dev</h3>
-              <p className="text-xs text-secondary">Next.js, React, Tailwind</p>
+              <p className="text-xs text-secondary">Next.js, React</p>
             </div>
-
             {/* Skill 2 */}
-            <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-purple-500/50 hover:bg-purple-500/10 transition-all group">
-              <Palette className="w-8 h-8 text-purple-400 mb-4 group-hover:scale-110 transition-transform" />
+            <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-purple-500/10 transition-all group">
+              <Palette className="w-8 h-8 text-purple-400 mb-4" />
               <h3 className="text-lg font-bold mb-1">UI/UX</h3>
-              <p className="text-xs text-secondary">Figma, Prototyping</p>
+              <p className="text-xs text-secondary">Figma Design</p>
             </div>
-
             {/* Skill 3 */}
-            <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-green-500/50 hover:bg-green-500/10 transition-all group">
-              <Terminal className="w-8 h-8 text-green-400 mb-4 group-hover:scale-110 transition-transform" />
+            <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-green-500/10 transition-all group">
+              <Terminal className="w-8 h-8 text-green-400 mb-4" />
               <h3 className="text-lg font-bold mb-1">Database</h3>
-              <p className="text-xs text-secondary">MySQL, PostgreSQL</p>
+              <p className="text-xs text-secondary">SQL, Data</p>
             </div>
-
             {/* Skill 4 */}
-            <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-yellow-500/50 hover:bg-yellow-500/10 transition-all group">
-              <Cpu className="w-8 h-8 text-yellow-400 mb-4 group-hover:scale-110 transition-transform" />
-              <h3 className="text-lg font-bold mb-1">Logic</h3>
-              <p className="text-xs text-secondary">Problem Solving</p>
+            <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-yellow-500/10 transition-all group">
+              <Cpu className="w-8 h-8 text-yellow-400 mb-4" />
+              <h3 className="text-lg font-bold mb-1">Problem Solving</h3>
+              <p className="text-xs text-secondary">Logic & Algo</p>
             </div>
-
         </motion.div>
 
       </div>
